@@ -90,7 +90,7 @@ if (process.argv[2] && process.argv[3]) {
         fs.mkdirSync("nodebook-tests");
       }
         fs.writeFileSync('nodebook-tests/'+process.argv[3].split('.').slice(0, -1).join('.') + '.ndbk', createSuite())
-        console.log('Test created! Use "nodebook test nodebook-tests/' + process.argv[3].split('.').slice(0, -1).join('.') + '.ndbk to run this test!')
+        console.log('Test created! Use "nodebook run nodebook-tests/' + process.argv[3].split('.').slice(0, -1).join('.') + '.ndbk to run this test!')
     } else {
         console.log('Nodebook error: function does not exist!')
     }
