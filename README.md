@@ -17,7 +17,7 @@ nodebook run nodebook-tests/main.ndbk
 Returns:
 ```
 ------
-Test number: 0
+Test number: 1
 Snippet: "// Some working code.
 9 + 10;",
 Result: "19"
@@ -26,7 +26,7 @@ Succeeded: true
 
 
 ------
-Test number: 1
+Test number: 2
 Snippet: "// Some code which will give a syntax error.
 @({)}",
 Result: "undefined"
