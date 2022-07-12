@@ -1,6 +1,11 @@
 # nodebook
 A tool to make shareable test suites.
 
+# Installation
+```
+npm i -g nodebook-cli
+```
+
 # Usage
 main.js:
 ```js
