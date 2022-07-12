@@ -1,5 +1,5 @@
 # nodebook
-A tool to make downloadable test suites.
+A tool to make shareable test suites.
 
 # Usage
 main.js:
