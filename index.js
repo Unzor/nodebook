@@ -54,7 +54,7 @@ let testi = (file) => {
     data.chunks.forEach(function(e, i) {
         var results = test(e);
         console.log(`\n------
-Test number: ${i}
+Test number: ${i+1}
 Snippet: "${e}",
 Result: "${results.result}"
 Succeeded: ${results.success}${results.success == false ?"\nMessage: "+results.message+"\n":"\n"}------\n`)
