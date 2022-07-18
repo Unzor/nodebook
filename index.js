@@ -17,11 +17,19 @@ var test = (f) => {
     return s;
 }
 
-let encrypt = (f) => {
-    return f.split('').map(x => String.fromCharCode(x.charCodeAt() + 10000)).join('')
-}
-let decrypt = (f) => {
-    return f.split('').map(x => String.fromCharCode(x.charCodeAt() - 10000)).join('')
+let enceode = (str) => {
+    var result = "";
+    for (i=0; i<str.length; i++) {
+        hex = str.charCodeAt(i).toString(16);
+        result += ("000"+hex).slice(-4);
+    }
+    result = result.match(/.{1,2}/g).map(x=>x.split('').reverse().join('')).join('')
+     var str = '';
+     for (var i = 0; i < result.length; i += 2) {
+        var v = parseInt(result.substr(i, 2), 16);
+        if (v) str += String.fromCharCode(v);
+    }
+    return str;
 }
 
 let range = (a, b) => {
@@ -50,7 +58,7 @@ function linesi(s, a, b) {
 }
 
 let testi = (file) => {
-    var data = JSON.parse(decrypt(fs.readFileSync(file).toString()));
+    var data = JSON.parse(enceode(fs.readFileSync(file).toString()));
     data.chunks.forEach(function(e, i) {
         var results = test(e);
         console.log(`\n------
@@ -74,7 +82,7 @@ let createSuite = () => {
             var lines = linesi(...lines);
             chunks.push(lines);
         })
-        return encrypt(JSON.stringify({
+        return enceode(JSON.stringify({
             chunks
         }));
     } else {
